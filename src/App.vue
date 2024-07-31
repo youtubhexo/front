@@ -3,10 +3,13 @@
     <div class="layui-container">
     <form class="layui-form layui-form-pane" action="">
    <div class="layui-form-item">
-    <label class="layui-form-label">用户名</label>
+    <ValidationProvider  name="邮箱"  rules="required" v-slot="{ errors }">
+    <label class="layui-form-label">邮箱</label>
     <div class="layui-input-block">
-      <input type="text" name="title" autocomplete="off" placeholder="请输入" lay-verify="required" class="layui-input">
+      <input   v-model="username" type="text" autocomplete="off" placeholder="请输入"  class="layui-input">
     </div>
+    <span>{{ errors[0] }}</span>
+    </ValidationProvider>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">密码</label>
@@ -33,7 +36,8 @@ export default {
   name: 'App',
   data () {
     return {
-      svg: ''
+      svg: '',
+      username: ''
     }
   },
   mounted () {
