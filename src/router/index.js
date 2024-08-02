@@ -1,14 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-
+const Login = () => import(/* webpackChunkName: "login" */'../views/Login.vue')
+const Reg = () => import(/* webpackChunkName: "reg" */'../views/Reg.vue')
+const Forget = () => import(/* webpackChunkName: "forget" */'../views/Forget.vue')
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/reg',
+    name: 'reg',
+    component: Reg
+  },
+  {
+    path: '/forget',
+    name: 'forget',
+    component: Forget
   },
   {
     path: '/about',
